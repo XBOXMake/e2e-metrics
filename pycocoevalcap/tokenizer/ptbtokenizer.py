@@ -35,6 +35,7 @@ class PTBTokenizer(object):
         # ======================================================
         # prepare data for PTB Tokenizer
         # ======================================================
+        print(f'what the fuck?????{c['caption']}' for k, v in list(captions_for_image.items()) for c in v)
         final_tokenized_captions_for_image = {}
         image_id = [k for k, v in list(captions_for_image.items()) for _ in range(len(v))]
         sentences = '\n'.join([c['caption'].replace('\n', ' ') for k, v in list(captions_for_image.items()) for c in v])

@@ -14,9 +14,9 @@ import re
 import sys
 import csv
 
-from pycocotools.coco import COCO
-from pycocoevalcap.eval import COCOEvalCap
-from metrics.pymteval import BLEUScore, NISTScore
+from src.metrics.e2e_nlg.pycocotools.coco import COCO
+from src.metrics.e2e_nlg.pycocoevalcap.eval import COCOEvalCap
+from src.metrics.e2e_nlg.metrics.pymteval import BLEUScore, NISTScore
 
 # CSV headers
 HEADER_SRC = r'(mr|src|source|meaning(?:[_ .-]rep(?:resentation)?)?|da|dial(?:ogue)?[_ .-]act)s?'
