@@ -4,6 +4,9 @@ from typing import Dict, Any
 import datasets
 from evaluate import Metric, EvaluationModuleInfo, MetricInfo
 
+def get_metrics() -> Metric:
+    return E2E_NLG_Metrics()
+
 class E2E_NLG_Metrics(Metric):
     def _download_and_prepare(self, dl_manager):
         os.system('pip install -r matplotlib scikit-image future')
