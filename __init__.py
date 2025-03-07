@@ -4,8 +4,12 @@ from typing import Dict, Any
 import datasets
 from evaluate import Metric, EvaluationModuleInfo, MetricInfo
 
+
 def get_metrics() -> Metric:
-    return E2E_NLG_Metrics()
+    print(f'getting metrics --- e2e_nlg')
+    metrics = E2E_NLG_Metrics()
+    return metrics
+
 
 class E2E_NLG_Metrics(Metric):
     def _download_and_prepare(self, dl_manager):
@@ -18,9 +22,9 @@ class E2E_NLG_Metrics(Metric):
         python = kwargs.get('python', True)
 
         data = {
-            'ref':references,
-            'sys':predictions,
-            'src':inputs if kwargs.get('allow_inputs', False) else None,
+            'ref': references,
+            'sys': predictions,
+            'src': inputs if kwargs.get('allow_inputs', False) else None,
         }
         from src.metrics.e2e_nlg.measure_scores import run_coco_eval, run_pymteval, run_mteval
         coco_eval = run_coco_eval(data['ref'], data['sys'])
@@ -54,5 +58,3 @@ class E2E_NLG_Metrics(Metric):
                 ),
             ]
         )
-
-
